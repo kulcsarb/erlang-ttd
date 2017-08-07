@@ -1,2 +1,4 @@
-# erlang-ttd
-A fun project to rebuild Transport Tycoon in Erlang
+An Erlang implementation of OpenTTD 
+===================================
+
+
