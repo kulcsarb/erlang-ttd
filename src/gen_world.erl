@@ -16,11 +16,12 @@
 -type gen_world_mode() :: {newgame | empty | random | heightmap}.
 
 -record(landscape_settings,
-      {   mode            = empty     :: gen_world_mode(),
-          populate_world  = false     :: boolean()
+        { mode            = empty     :: gen_world_mode()
+        , populate_world  = false     :: boolean()
         , size_x          = 256       :: integer()
         , size_y          = 256       :: integer()
-      }).
+        }).
+
 
 -type landscape_settings() :: #landscape_settings{}.
 
@@ -37,7 +38,7 @@ generate_world(#landscape_settings{mode = Mode, populate_world = Populate} = Set
 
   if
     Mode == empty ->
-      heightmap:flat_empty_world(),
+      heightmap:flat_empty_world(256, 256),
       convert_ground_tiles_into_water_tiles()
     ; true ->
       generate_landscape(),
@@ -86,9 +87,6 @@ startup_engines() ->
 startup_disasters() ->
   ok.
 
-
-flat_empty_world() ->
-  ok.
 
 convert_ground_tiles_into_water_tiles() ->
   ok.
